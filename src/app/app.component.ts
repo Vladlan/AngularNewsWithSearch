@@ -6,11 +6,18 @@ import {Component} from '@angular/core';
   template: `
     <div class="container">
       <div class="row">
-        <div class="col-sm">
-          <h2>{{ amount | appPowPipe}}</h2>
-          <h2>{{ amount | appPowPipe: 2 }}</h2>
-          <h2>{{ amount | appPowPipe: 3:'=' }}</h2>
+          <div class="col-sm">
 
+          <input class="form-control" type="text" [(ngModel)]="searchCar">
+
+          <hr>
+
+          <ul class="list-group">
+            <li class="list-group-item"
+            *ngFor="let car of cars | carFilter:searchCar:'name'; let i = index ">
+              <b>{{i+1}}</b> {{car.name}} -  <i>{{car.year}}</i>
+            </li>
+          </ul>
 
         </div>
       </div>
@@ -19,6 +26,13 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
-  amount = 3;
+  searchCar = '';
+
+  cars = [
+    {name: 'Ford', year: '1999'},
+    {name: 'Bentley', year: '2000'},
+    {name: 'Audi', year: '2001'},
+    {name: 'Mersedes', year: '2002'}
+  ];
 
 }
