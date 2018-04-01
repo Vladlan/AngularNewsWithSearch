@@ -9,6 +9,7 @@ import {Component} from '@angular/core';
           <div class="col-sm">
 
           <input class="form-control" type="text" [(ngModel)]="searchCar">
+            <button class="btn btn-primary" (click)="addCar()">Add car</button>
 
           <hr>
 
@@ -35,4 +36,10 @@ export class AppComponent {
     {name: 'Mersedes', year: '2002'}
   ];
 
+  addCar() {
+    this.cars.push({
+      name: 'New Car',
+      year: '2018'
+    });
+  }
 }
