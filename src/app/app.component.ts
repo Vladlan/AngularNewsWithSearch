@@ -9,7 +9,10 @@ import {NgForm} from '@angular/forms';
   providers: [],
   styles: [
     `input.ng-invalid.ng-touched { border: solid red 1px }`,
-    `.error { color: red }`
+    `.error { color: red }`,
+    `.container {
+      margin-top: 3%;
+    }`
   ]
 })
 export class AppComponent implements OnInit {
@@ -22,6 +25,9 @@ export class AppComponent implements OnInit {
       text: 'нет'
     }
   ];
+
+  defaultAnswer = 'yes';
+  defaultCountry = 'by';
 
   submitForm(form: NgForm) {
     console.log('Submitted');

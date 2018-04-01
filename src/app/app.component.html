@@ -32,11 +32,11 @@
 
         <div class="form-group">
           <label for="">Выберите страну</label>
-          <select ngModel
-                  name="country"
-                  id=""
+          <select name="country"
                   class="form-control"
-                  required>
+                  required
+                  [ngModel]="defaultCountry"
+          >
             <option value="ru">Russia</option>
             <option value="by">Belarus</option>
             <option value="ua">Ukraine</option>
@@ -45,7 +45,13 @@
 
         <div class="radio" *ngFor="let ans of answers">
           <label for="">
-            <input ngModel name="answer" type="radio" [value]="ans.type"> {{ans.text}}
+            <input name="answer"
+                   required
+                   type="radio"
+                   [value]="ans.type"
+                   [ngModel]="defaultAnswer"
+            >
+            {{ans.text}}
           </label>
         </div>
 
