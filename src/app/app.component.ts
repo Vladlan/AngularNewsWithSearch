@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,7 @@ import {Component} from '@angular/core';
     <div class="container">
       <div class="row">
           <div class="col-sm">
+            <h1>{{ asyncTitle | async }}</h1>
 
           <input class="form-control" type="text" [(ngModel)]="searchCar">
             <button class="btn btn-primary" (click)="addCar()">Add car</button>
@@ -28,6 +31,9 @@ import {Component} from '@angular/core';
 export class AppComponent {
 
   searchCar = '';
+
+  asyncTitle = Observable.of('Async title 3 secs')
+    .delay(3000);
 
   cars = [
     {name: 'Ford', year: '1999'},
