@@ -3,29 +3,33 @@
     <div class="col-sm">
 
       <form (ngSubmit)="submitForm(form)" #form="ngForm">
-        <!--<form (ngSubmit)="submitForm()" #form="ngForm">-->
         <div class="form-group">
           <label>Email</label>
-          <input
-            type="text"
-            class="form-control"
-          ngModel
-          name="email">
+          <input type="text"
+                 class="form-control"
+                 ngModel
+                 name="email"
+                 required
+                 email>
         </div>
 
         <div class="form-group">
           <label for="">Password</label>
-          <input
-            type="text"
-            class="form-control"
-          ngModel
-          name="password">
+          <input type="text"
+                 class="form-control"
+                 ngModel
+                 name="password"
+                 required>
         </div>
 
 
         <div class="form-group">
           <label for="">Выберите страну</label>
-          <select ngModel name="country" id="" class="form-control" >
+          <select ngModel
+                  name="country"
+                  id=""
+                  class="form-control"
+                  required>
             <option value="ru">Russia</option>
             <option value="by">Belarus</option>
             <option value="ua">Ukraine</option>
@@ -38,10 +42,15 @@
           </label>
         </div>
 
-        <button class="btn btn-success" type="submit">Save</button>
+        <button
+          class="btn btn-success"
+          type="submit"
+          [disabled]="!form.valid">
+          Save
+        </button>
 
       </form>
 
-  </div>
+    </div>
   </div>
 </div>

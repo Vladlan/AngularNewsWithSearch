@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 
 
@@ -6,7 +6,10 @@ import {NgForm} from '@angular/forms';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: []
+  providers: [],
+  styles: [`
+    input.ng-invalid.ng-touched { border: solid red 1px }`
+  ]
 })
 export class AppComponent implements OnInit {
   answers = [{
@@ -19,13 +22,9 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  // @ViewChild('form') form: NgForm;
-
   submitForm(form: NgForm) {
-  // submitForm() {
     console.log('Submitted');
     console.log(form);
-    // console.log(this.form);
   }
 
   constructor() {
