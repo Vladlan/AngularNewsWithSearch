@@ -7,8 +7,9 @@ import {NgForm} from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [],
-  styles: [`
-    input.ng-invalid.ng-touched { border: solid red 1px }`
+  styles: [
+    `input.ng-invalid.ng-touched { border: solid red 1px }`,
+    `.error { color: red }`
   ]
 })
 export class AppComponent implements OnInit {
