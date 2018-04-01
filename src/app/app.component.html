@@ -18,6 +18,12 @@
             <p class="error" *ngIf="email.invalid && email.touched">
               Email is not appropriate
             </p>
+            <button class="btn btn-primary"
+                    (click)="addRandEmail()"
+                    type="button"
+            >
+              Add random email
+            </button>
           </div>
 
           <div class="form-group" [ngClass]="{'has-error': password.invalid && password.touched}">
@@ -69,6 +75,12 @@
         </button>
 
       </form>
+
+      <div class="code" *ngIf="isSubmited">
+        <pre>
+          {{formData | json }}
+        </pre>
+      </div>
 
     </div>
   </div>
