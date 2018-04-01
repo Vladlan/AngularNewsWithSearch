@@ -51,8 +51,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       user: new FormGroup({
-        email: new FormControl('defaultValue', [ Validators.required, Validators.email ] ),
-        password: new FormControl( '', [Validators.required , this.checkForLength.bind(this)] )
+        email: new FormControl('defaultValue', [Validators.required, Validators.email], this.checkForEmail),
+        password: new FormControl('', [Validators.required, this.checkForLength.bind(this)])
       }),
       country: new FormControl('ru'),
       answer: new FormControl('no')
@@ -64,5 +64,15 @@ export class AppComponent implements OnInit {
       return {'lengthError': true};
     }
     return null;
+  }
+
+  checkForEmail(control: FormControl): Promise<any> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'defaultValue@smt') {
+          resolve( {'emailIsUsed': true} );
+        } else { resolve(null); }
+      }, 3000);
+    });
   }
 }

@@ -16,8 +16,11 @@
                    formControlName="email"
             >
             <p class="error" *ngIf="form.get('user.email').invalid && form.get('user.email').touched">
-              Email is not appropriate
+              <span>Email is not appropriate</span>
+              <br>
+              <span *ngIf="form.get('user.email').errors['emailIsUsed']">This Email already exist</span>
             </p>
+
           </div>
 
           <div class="form-group">
@@ -30,6 +33,7 @@
             >
             <p class="error" *ngIf="form.get('user.password').invalid && form.get('user.password').touched">
               <span *ngIf="form.get('user.password').errors['required']">Password is empty</span>
+              <br>
               <span *ngIf="form.get('user.password').errors['lengthError']">Password is less then 5 symbols</span>
             </p>
           </div>
