@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -9,17 +10,27 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
   answers = [{
-  type: 'yes',
+    type: 'yes',
     text: 'да'
   },
     {
-  type: 'no',
-    text: 'нет'
-  }
+      type: 'no',
+      text: 'нет'
+    }
   ];
 
-  constructor() {}
+  // @ViewChild('form') form: NgForm;
 
-  ngOnInit(); {
+  submitForm(form: NgForm) {
+  // submitForm() {
+    console.log('Submitted');
+    console.log(form);
+    // console.log(this.form);
+  }
+
+  constructor() {
+  }
+
+  ngOnInit() {
   }
 }
