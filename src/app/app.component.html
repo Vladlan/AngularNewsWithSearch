@@ -13,9 +13,9 @@
                  email
                  formControlName="email"
           >
-          <!--<p class="error" *ngIf="email.invalid && email.touched">-->
-            <!--Email is not appropriate-->
-          <!--</p>-->
+          <p class="error" *ngIf="form.get('email').invalid && form.get('email').touched">
+            Email is not appropriate
+          </p>
         </div>
 
         <div class="form-group">
@@ -26,7 +26,9 @@
                  required
                  formControlName="password"
           >
-          <!--<p class="error" *ngIf="password.invalid && password.touched">Password is empty</p>-->
+          <p class="error" *ngIf="form.get('password').invalid && form.get('password').touched">
+            Password is empty
+          </p>
         </div>
 
         <div class="form-group">
