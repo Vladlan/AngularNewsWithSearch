@@ -4,32 +4,37 @@
 
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-        <div class="form-group">
-          <label>Email</label>
-          <input type="text"
-                 class="form-control"
-                 name="email"
-                 required
-                 email
-                 formControlName="email"
-          >
-          <p class="error" *ngIf="form.get('email').invalid && form.get('email').touched">
-            Email is not appropriate
-          </p>
+        <div formGroupName="user">
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text"
+                   class="form-control"
+                   name="email"
+                   required
+                   email
+                   formControlName="email"
+            >
+            <p class="error" *ngIf="form.get('user.email').invalid && form.get('user.email').touched">
+              Email is not appropriate
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="text"
+                   class="form-control"
+                   name="password"
+                   required
+                   formControlName="password"
+            >
+            <p class="error" *ngIf="form.get('user.password').invalid && form.get('user.password').touched">
+              Password is empty
+            </p>
+          </div>
+
         </div>
 
-        <div class="form-group">
-          <label for="">Password</label>
-          <input type="text"
-                 class="form-control"
-                 name="password"
-                 required
-                 formControlName="password"
-          >
-          <p class="error" *ngIf="form.get('password').invalid && form.get('password').touched">
-            Password is empty
-          </p>
-        </div>
 
         <div class="form-group">
           <label for="">Выберите страну</label>
