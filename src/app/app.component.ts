@@ -33,6 +33,8 @@ export class AppComponent implements OnInit {
     }
   ];
 
+  charsCount = 5;
+
   isSubmited = false;
 
   form: FormGroup;
@@ -50,10 +52,17 @@ export class AppComponent implements OnInit {
     this.form = new FormGroup({
       user: new FormGroup({
         email: new FormControl('defaultValue', [ Validators.required, Validators.email ] ),
-        password: new FormControl( '', Validators.required ),
+        password: new FormControl( '', [Validators.required , this.checkForLength.bind(this)] )
       }),
       country: new FormControl('ru'),
       answer: new FormControl('no')
     });
+  }
+
+  checkForLength(control: FormControl) {
+    if (control.value.length <= this.charsCount) {
+      return {'lengthError': true};
+    }
+    return null;
   }
 }

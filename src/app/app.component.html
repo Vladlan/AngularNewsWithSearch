@@ -29,7 +29,8 @@
                    formControlName="password"
             >
             <p class="error" *ngIf="form.get('user.password').invalid && form.get('user.password').touched">
-              Password is empty
+              <span *ngIf="form.get('user.password').errors['required']">Password is empty</span>
+              <span *ngIf="form.get('user.password').errors['lengthError']">Password is less then 5 symbols</span>
             </p>
           </div>
 
