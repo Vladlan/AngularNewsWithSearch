@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-sm">
 
-      <button class="btn btn-primary">Load all cars</button>
+      <button class="btn btn-primary" (click)="loadCars()">
+        Load all cars
+      </button>
       <hr>
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let car of cars">
