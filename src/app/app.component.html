@@ -2,84 +2,16 @@
   <div class="row">
     <div class="col-sm">
 
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <button class="btn btn-primary">Load all cars</button>
+      <hr>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let car of cars">
+          <span class="badge">
+            {{car.id}} {{car.name}} ({{car.color}})
+          </span>
+        </li>
+      </ul>
 
-        <div formGroupName="user">
-
-          <div class="form-group">
-            <label>Email</label>
-            <input type="text"
-                   class="form-control"
-                   name="email"
-                   required
-                   email
-                   formControlName="email"
-            >
-            <p class="error" *ngIf="form.get('user.email').invalid && form.get('user.email').touched">
-              <span>Email is not appropriate</span>
-              <br>
-              <span *ngIf="form.get('user.email').errors['emailIsUsed']">This Email already exist</span>
-            </p>
-
-          </div>
-
-          <div class="form-group">
-            <label for="">Password</label>
-            <input type="text"
-                   class="form-control"
-                   name="password"
-                   required
-                   formControlName="password"
-            >
-            <p class="error" *ngIf="form.get('user.password').invalid && form.get('user.password').touched">
-              <span *ngIf="form.get('user.password').errors['required']">Password is empty</span>
-              <br>
-              <span *ngIf="form.get('user.password').errors['lengthError']">Password is less then 5 symbols</span>
-            </p>
-          </div>
-
-        </div>
-
-
-        <div class="form-group">
-          <label for="">Выберите страну</label>
-          <select name="country"
-                  class="form-control"
-                  required
-                  [formControlName]="'country'"
-          >
-            <option value="ru">Russia</option>
-            <option value="by">Belarus</option>
-            <option value="ua">Ukraine</option>
-          </select>
-        </div>
-
-        <div class="radio" *ngFor="let ans of answers">
-          <label>
-            <input name="answer"
-                   required
-                   type="radio"
-                   [value]="ans.type"
-                   formControlName="answer"
-            >
-            {{ans.text}}
-          </label>
-        </div>
-
-        <button
-          class="btn btn-success"
-          type="submit"
-          [disabled]="!form.valid">
-          Save
-        </button>
-
-      </form>
-
-      <div class="code" *ngIf="isSubmited">
-        <pre>
-          {{form.value | json }}
-        </pre>
-      </div>
 
     </div>
   </div>
