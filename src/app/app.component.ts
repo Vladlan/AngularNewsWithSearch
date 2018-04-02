@@ -1,6 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {CarsService} from './cars.service';
 
+interface Cars {
+  name: string;
+  color: string;
+  id: number;
+}
 
 @Component({
   selector: 'app-root',
@@ -11,7 +16,7 @@ import {CarsService} from './cars.service';
 
 export class AppComponent implements OnInit {
 
-  cars = [];
+  cars: Cars[] = [];
 
   constructor(private carsService: CarsService) {}
 
@@ -20,8 +25,8 @@ export class AppComponent implements OnInit {
   loadCars() {
     this.carsService
       .getCars()
-      .subscribe((response) => {
-        console.log(response);
+      .subscribe( (cars: Cars[]) => {
+        this.cars = cars;
       });
   }
 }

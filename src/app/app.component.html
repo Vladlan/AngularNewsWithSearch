@@ -8,9 +8,10 @@
       <hr>
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let car of cars">
-          <span class="badge">
-            {{car.id}} {{car.name}} ({{car.color}})
+          <span class="badge badge-secondary badge-pill">
+            {{car.id}}
           </span>
+          {{car.name}} ({{car.color}})
         </li>
       </ul>
 
