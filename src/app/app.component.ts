@@ -23,7 +23,8 @@ export class AppComponent implements OnInit {
     'green',
     'pink',
     'yellow',
-    'grey'
+    'grey',
+    'silver'
   ];
 
 
@@ -57,6 +58,13 @@ export class AppComponent implements OnInit {
     this.carsService.changeColor(car, this.getRandColor() )
       .subscribe((data) => {
         console.log(data);
+      });
+  }
+
+  deleteCar(car: Cars) {
+    this.carsService.deleteCar(car )
+      .subscribe((data) => {
+        this.cars = this.cars.filter(c => c.id !== car.id);
       });
   }
 

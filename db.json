@@ -1,38 +1,9 @@
 {
   "cars": [
     {
-      "color": "red",
-      "id": 1
-    },
-    {
-      "color": "pink",
-      "id": 2
-    },
-    {
-      "car": {
-        "name": "asdasdasd",
-        "color": "pink",
-        "id": 3
-      },
-      "id": 3,
-      "color": "red"
-    },
-    {
-      "color": "green",
-      "id": 4
-    },
-    {
-      "color": "green",
-      "id": 5
-    },
-    {
+      "name": "BMW",
       "color": "black",
-      "id": 6
-    },
-    {
-      "name": "sdsdsd",
-      "color": "yellow",
-      "id": 7
+      "id": 1
     }
   ]
 }
