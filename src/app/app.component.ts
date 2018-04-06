@@ -18,6 +18,13 @@ export class AppComponent implements OnInit {
 
   cars: Cars[] = [];
   carName: '';
+  colors = [
+    'red',
+    'green',
+    'pink',
+    'yellow',
+    'grey'
+  ];
 
 
   constructor(private carsService: CarsService) {}
@@ -40,4 +47,17 @@ export class AppComponent implements OnInit {
       });
     this.carName = '';
   }
+
+  getRandColor() {
+    const num = Math.round(Math.random() * (this.colors.length - 1) );
+    return this.colors[num];
+  }
+
+  setNewColor(car: Cars) {
+    this.carsService.changeColor(car, this.getRandColor() )
+      .subscribe((data) => {
+        console.log(data);
+      });
+  }
+
 }

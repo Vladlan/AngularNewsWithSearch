@@ -1,24 +1,38 @@
 {
   "cars": [
     {
-      "name": "Ford",
-      "color": "white",
+      "color": "red",
       "id": 1
     },
     {
-      "name": "sddsdsd",
-      "color": "black",
+      "color": "pink",
       "id": 2
     },
     {
-      "name": "asdasdasd",
-      "color": "black",
-      "id": 3
+      "car": {
+        "name": "asdasdasd",
+        "color": "pink",
+        "id": 3
+      },
+      "id": 3,
+      "color": "red"
     },
     {
-      "name": "addasddsad",
-      "color": "black",
+      "color": "green",
       "id": 4
+    },
+    {
+      "color": "green",
+      "id": 5
+    },
+    {
+      "color": "black",
+      "id": 6
+    },
+    {
+      "name": "sdsdsd",
+      "color": "yellow",
+      "id": 7
     }
   ]
 }
