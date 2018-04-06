@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Response, Headers, RequestOptions } from '@angular/http';
+import {Http, Response, Headers } from '@angular/http';
 
 @Injectable()
 export class CarsService {
@@ -9,8 +9,7 @@ export class CarsService {
   getCars() {
     const headers = new Headers({ 'Content-Type': 'text/uri-list' });
     headers.append('authentication', 'hello');
-    const options = new RequestOptions({headers: headers});
-    return this.http.get('http://localhost:3000/cars', options )
+    return this.http.get('http://localhost:3000/cars', { headers: headers } )
       .map((response: Response) => response.json() );
   }
 
