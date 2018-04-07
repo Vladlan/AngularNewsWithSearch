@@ -11,7 +11,7 @@ export class CarsService {
   getCars() {
     const headers = new Headers({'Content-Type': 'text/uri-list'});
     headers.append('authentication', 'hello');
-    return this.http.get('http://localhost:30100/cars', {headers: headers})
+    return this.http.get('http://localhost:3000/cars', {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         return Observable.throw('Server is not available now');
@@ -36,5 +36,12 @@ export class CarsService {
   deleteCar(car: any) {
     return this.http.delete(`http://localhost:3000/cars/${car.id}`)
       .map((response: Response) => response.json());
+  }
+
+  getAppTitle() {
+    return this.http.get('http://localhost:3000/title')
+      .delay(3000)
+      .map((response: Response) => response.json())
+      .map((data) => data.value);
   }
 }

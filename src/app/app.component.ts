@@ -16,7 +16,8 @@ interface Cars {
 
 export class AppComponent implements OnInit {
 
-  cars: Cars[] = [];
+  // cars: Cars[] = [];
+  cars: any;
   carName: '';
   colors = [
     'red',
@@ -26,22 +27,26 @@ export class AppComponent implements OnInit {
     'grey',
     'silver'
   ];
+  appTitle;
 
 
   constructor(private carsService: CarsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.appTitle = this.carsService.getAppTitle();
+  }
 
   loadCars() {
-    this.carsService
-      .getCars()
-      .subscribe( (cars: Cars[]) => {
-        this.cars = cars;
-      },
-        (error) => {
-        alert(error);
-        }
-        );
+    // this.carsService
+    //   .getCars()
+    //   .subscribe( (cars: Cars[]) => {
+    //     this.cars = cars;
+    //   },
+    //     (error) => {
+    //     alert(error);
+    //     }
+    //     );
+    this.cars = this.carsService.getCars();
   }
 
   addCar () {
