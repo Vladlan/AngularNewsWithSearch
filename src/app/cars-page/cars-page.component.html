@@ -3,7 +3,7 @@
 
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let car of cars">
-    <a href="">
+    <a [routerLink]="['/cars' , car.id, car.name]">
       {{car.name}}
     </a>
   </li>
