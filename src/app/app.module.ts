@@ -8,13 +8,7 @@ import { HttpModule } from "@angular/http";
 import { CarsService } from "./cars.service";
 import { CarsPageComponent } from './cars-page/cars-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import {Routes, RouterModule } from '@angular/router';
-
-const appRoutes: Routes = [
-  //http://localhost:4200/cars
-  { path: '', component: HomePageComponent },
-  { path: 'cars', component: CarsPageComponent }
-];
+import {AppRoutingModule} from "./app-routing.module";
 
 
 @NgModule({
@@ -26,8 +20,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [CarsService],
   bootstrap: [AppComponent]
