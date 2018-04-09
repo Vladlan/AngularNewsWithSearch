@@ -1,6 +1,23 @@
 <h2>
-  Car - {{name}} id:{{id}}
+  {{name}}
 </h2>
+<h4>
+  id: {{id}}
+</h4>
+<h4>
+  color: {{color}}
+</h4>
+<h4>
+  year: {{year}}
+</h4>
 
 
-<p><a [routerLink]="['/cars', 8, 'Mazda']">Mazda available!</a></p>
+<p>
+  <a [routerLink]="['/cars', 8, 'Mazda']">Mazda available!</a>
+</p>
+<p>
+<a (click)="openBugattiPage()">Mazda available!</a>
+</p>
+
+<hr>
+<p>{{hash}}</p>
