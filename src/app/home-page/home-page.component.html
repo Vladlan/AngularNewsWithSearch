@@ -6,4 +6,22 @@
   ea excepturi fuga, fugiat ipsam iure maiores minus molestiae perspiciatis, ratione sit temporibus ut.
 </p>
 
-<button class="btn btn-primary" (click)="openCarsPage()">Open cars page</button>
+<button class="btn btn-primary" (click)="openNewsPage()">
+  Open news page
+</button>
+
+<button class="btn btn-secondary" (click)="loadNewsInNewsService()">
+  loadNewsInNewsService
+</button>
+<button class="btn btn-secondary" (click)="showNewsFromNewsService()">
+  showNewsFromNewsService
+</button>
+
+<br>
+<input class="form-control typeId"
+       placeholder="search news by headline"
+       type="number"
+       [(ngModel)]="oneNewsId">
+<button class="btn alert-danger" (click)="getOneNewsFromServiceById(oneNewsId)">
+  showOneNewsFromNewsService
+</button>

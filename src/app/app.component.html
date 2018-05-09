@@ -1,35 +1,40 @@
+<header>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/"><b>News on Angular</b> </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="#">     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"
+      >
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
 
-        <li class="nav-item active"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}"
-        >
-          <a class="nav-link" routerLink="/" >Home
-          </a>
-        </li>
+      <li class="nav-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link"
+           [routerLink]="'/news'"
+        >News</a>
+      </li>
 
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="'/cars'">Cars</a>
-        </li>
+    </ul>
 
-      </ul>
+  </div>
+</nav>
+</header>
 
-    </div>
-  </nav>
-
-  <div class="container">
+<main role="main" class="container">
+<div class="container">
   <div class="row">
     <div class="col-sm">
 
@@ -38,3 +43,15 @@
     </div>
   </div>
 </div>
+</main>
+
+<footer class="footer">
+  <div class="footerContainer">
+    <span class="text-muted">
+      <a href="https://github.com/Vladlan">Copyright &copy; 2018 Vladislav Lanskikh</a>
+    </span>
+  </div>
+</footer>
+
+
+

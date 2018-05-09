@@ -1,12 +1,25 @@
 {
   "title": {
-    "value": "Cars manager"
+    "value": "News base"
   },
-  "cars": [
+  "news": [
     {
-      "name": "BMW",
-      "color": "black",
-      "id": 1
+      "headLine": "News 1",
+      "content": "Content of news 1!",
+      "id": 1,
+      "dateOfCreation": 1525884011000
+    },
+    {
+      "headLine": "News 2",
+      "content": "Content of news 2!",
+      "id": 2,
+      "dateOfCreation": 1525884022000
+    },
+    {
+      "headLine": "News 3",
+      "content": "Content of news 3!",
+      "id": 3,
+      "dateOfCreation": 1525884033000
     }
   ]
 }

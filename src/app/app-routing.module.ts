@@ -1,15 +1,13 @@
 import {NgModule} from '@angular/core';
 import {HomePageComponent} from './home-page/home-page.component';
-import {CarsPageComponent} from './cars-page/cars-page.component';
+import {NewsPageComponent} from './news-page/news-page.component';
 import {Routes, RouterModule} from '@angular/router';
-import {CarPageComponent} from './car-page/car-page.component';
+import {OneNewsPageComponent} from './one-news-page/one-news-page.component';
 
 const appRoutes: Routes = [
-  //http://localhost:4200/cars
   { path: '', component: HomePageComponent },
-  { path: 'cars', component: CarsPageComponent, children: [
-    {path: ':id/:name', component: CarPageComponent}
-  ] }
+  { path: 'news/:id/:headLine', component: OneNewsPageComponent },
+  { path: 'news', component: NewsPageComponent}
 ];
 
 @NgModule({

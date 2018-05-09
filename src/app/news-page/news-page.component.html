@@ -1,0 +1,34 @@
+<h2>News</h2>
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+    <input class="form-control newsSearch"
+           placeholder="search news by headline"
+           type="text"
+           [(ngModel)]="searchCar">
+    <ul class="list-group">
+      <li class="list-group-item"
+          *ngFor="let oneNews of news | carFilter:searchCar:'headLine';
+          let i = index ">
+        <a [routerLink]="['/news' , oneNews.id, oneNews.headLine]">
+          <b>{{i+1}}.</b> {{oneNews.headLine}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <br>
+  <button class="btn btn-secondary" (click)="showNewsFromNewsService()">
+    showNewsFromNewsService
+  </button>
+  <input class="form-control typeId"
+         placeholder="search news by headline"
+         type="number"
+         [(ngModel)]="oneNewsId">
+  <button class="btn alert-danger" (click)="getOneNewsFromServiceById(oneNewsId)">
+    showOneNewsFromNewsService
+  </button>
+
+</div>
+

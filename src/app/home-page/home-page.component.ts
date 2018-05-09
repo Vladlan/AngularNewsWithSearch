@@ -1,20 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import { Component } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {NewsService} from '../news.service';
+import {OneNews} from '../news-page/news-page.component';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent {
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  homeOneNews: OneNews;
+  oneNewsId: number;
 
-  ngOnInit() {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private newsService: NewsService
+  ) { }
+
+
+  openNewsPage() {
+    this.router.navigate(['news'], {relativeTo: this.route});
   }
 
-  openCarsPage() {
-    this.router.navigate(['cars'], {relativeTo: this.route});
+  loadNewsInNewsService() {
+    this.newsService.assignNewsToService();
+  }
+
+  showNewsFromNewsService() {
+    this.newsService.consoleLogNewFromNewsService();
+  }
+
+  getOneNewsFromServiceById(id: number) {
+    this.homeOneNews = this.newsService.news[+id];
+    console.log(this.homeOneNews);
   }
 
 }
