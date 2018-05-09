@@ -25,31 +25,29 @@ export class NewsPageComponent implements OnInit {
 
   homeOneNews: OneNews;
   oneNewsId: number;
-  promise: any;
 
 
   constructor(private newsService: NewsService) {}
 
 
   ngOnInit() {
-    // this.loadNews();
+    if (this.newsService.news.length === 0 ) {
 
-    // setTimeout(() => {
-    //   this.assignNewsFromServiceToThisComponent();
-    // }, 500);
-
-    this.newsService.assignNewsToService()
-      .subscribe((data) => {
-          console.log('data: ', data);
-          this.assignNewsFromServiceToThisComponent();
-        },
-        (err) => {
-          console.log('error: ', err);
-        },
-        () => {
-          console.log('completed in ngOnInit');
-        }
-      );
+      this.newsService.assignNewsToService()
+        .subscribe((data) => {
+            console.log('data: ', data);
+            this.assignNewsFromServiceToThisComponent();
+          },
+          (err) => {
+            console.log('error: ', err);
+          },
+          () => {
+            console.log('completed in ngOnInit');
+          }
+        );
+    } else {
+      this.assignNewsFromServiceToThisComponent();
+    }
   }
 
   loadNewsInNewsService() {
@@ -96,33 +94,33 @@ export class NewsPageComponent implements OnInit {
     console.log(this.news);
   }
 
-  //
-  // addCar () {
-  //   this.carsService
-  //     .addCar(this.carName)
-  //     .subscribe( (car: Cars) => {
-  //       this.news.push(car);
-  //     });
-  //   this.carName = '';
-  // }
-  //
-  // getRandColor() {
-  //   const num = Math.round(Math.random() * (this.colors.length - 1) );
-  //   return this.colors[num];
-  // }
-  //
-  // setNewColor(car: Cars) {
-  //   this.carsService.changeColor(car, this.getRandColor() )
-  //     .subscribe((data) => {
-  //       console.log(data);
-  //     });
-  // }
-  //
-  // deleteCar(car: Cars) {
-  //   this.carsService.deleteCar(car )
-  //     .subscribe((data) => {
-  //       this.news = this.news.filter(c => c.id !== car.id);
-  //     });
-  // }
+//
+// addCar () {
+//   this.carsService
+//     .addCar(this.carName)
+//     .subscribe( (car: Cars) => {
+//       this.news.push(car);
+//     });
+//   this.carName = '';
+// }
+//
+// getRandColor() {
+//   const num = Math.round(Math.random() * (this.colors.length - 1) );
+//   return this.colors[num];
+// }
+//
+// setNewColor(car: Cars) {
+//   this.carsService.changeColor(car, this.getRandColor() )
+//     .subscribe((data) => {
+//       console.log(data);
+//     });
+// }
+//
+// deleteCar(car: Cars) {
+//   this.carsService.deleteCar(car )
+//     .subscribe((data) => {
+//       this.news = this.news.filter(c => c.id !== car.id);
+//     });
+// }
 
 }

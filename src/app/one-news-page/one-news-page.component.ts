@@ -2,6 +2,7 @@ import {Component, Injectable, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {NewsService} from '../news.service';
 import {NewsPageComponent, OneNews} from '../news-page/news-page.component';
+import {el} from "@angular/platform-browser/testing/src/browser_util";
 
 @Component({
   selector: 'app-car-page',
@@ -25,16 +26,30 @@ export class OneNewsPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    console.log(this.route);
-
     this.id = +this.route.snapshot.params['id'];
 
-    this.currentOnePage = this.newsPageComponent.news[this.id];
-
+    if (this.newsService.news.length === 0 ) {
+      this.newsService.assignNewsToService()
+        .subscribe((data) => {
+            console.log('data: ', data);
+            this.currentOnePage = this.newsService.news[this.id - 1];
+          },
+          (err) => {
+            console.log('error: ', err);
+          },
+          () => {
+            console.log('completed in ngOnInit');
+          }
+        );
+    } else {
+      this.currentOnePage = this.newsService.news[this.id - 1];
+    }
   }
 
   showNewsFromNewsPageComponent() {
     this.newsPageComponent.consoleLogNewsPageComponent();
+  }
+  showNewsFromNewsService() {
+    this.newsService.consoleLogNewFromNewsService();
   }
 }
