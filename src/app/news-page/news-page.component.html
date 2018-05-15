@@ -9,7 +9,7 @@
            [(ngModel)]="searchCar">
     <ul class="list-group">
       <li class="list-group-item"
-          *ngFor="let oneNews of news | carFilter:searchCar:'headLine';
+          *ngFor="let oneNews of news | newsFilter:searchCar:'headLine';
           let i = index ">
         <a [routerLink]="['/news' , oneNews.id, oneNews.headLine]">
           <b>{{i+1}}.</b> {{oneNews.headLine}}

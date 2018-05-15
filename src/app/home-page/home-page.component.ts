@@ -25,7 +25,16 @@ export class HomePageComponent {
   }
 
   loadNewsInNewsService() {
-    this.newsService.assignNewsToService();
+    this.newsService.assignNewsToService().subscribe((data) => {
+        console.log('data: ', data);
+      },
+      (err) => {
+        console.log('error: ', err);
+      },
+      () => {
+        console.log('completed in ngOnInit');
+      }
+    );
   }
 
   showNewsFromNewsService() {
