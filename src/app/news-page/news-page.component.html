@@ -3,10 +3,12 @@
 
 <div class="row">
   <div class="col-md-12">
+
     <input class="form-control newsSearch"
            placeholder="search news by headline"
            type="text"
            [(ngModel)]="searchCar">
+
     <ul class="list-group">
       <li class="list-group-item"
           *ngFor="let oneNews of news | newsFilter:searchCar:'headLine';
@@ -18,17 +20,28 @@
     </ul>
   </div>
 
-  <br>
+  <div class="divider"></div>
+
   <button class="btn btn-secondary" (click)="showNewsFromNewsService()">
     showNewsFromNewsService
   </button>
+
+
   <input class="form-control typeId"
-         placeholder="search news by headline"
+         placeholder="type id of news and press button below"
          type="number"
          [(ngModel)]="oneNewsId">
+
   <button class="btn alert-danger" (click)="getOneNewsFromServiceById(oneNewsId)">
     showOneNewsFromNewsService
   </button>
+
+  <div class="divider"></div>
+
+  <button class="btn alert-heading" (click)="getOneNewsFromServiceById(oneNewsId)">
+    add another News (one Item)
+  </button>
+
 
 </div>
 

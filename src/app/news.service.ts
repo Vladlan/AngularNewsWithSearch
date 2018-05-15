@@ -5,17 +5,38 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class NewsService {
-  constructor(private http: Http) {
-  }
+  constructor(private http: Http) {}
 
   news = [];
 
+  // main REST methods
   getNews() {
     return this.http.get('http://localhost:3000/news')
       .map((response: Response) => response.json());
   }
 
+  addOneNews(OneNewsName: string) {
+    const data = {
+      name: OneNewsName,
+      color: 'black'
+    };
+    return this.http.post('http://localhost:3000/news', data)
+      .map( (response: Response) => response.json() );
+  }
+
+  changeContent(oneNews, content: string) {
+    oneNews.content = content;
+    return this.http.put(`http://localhost:3000/news/${oneNews.id}`, oneNews)
+      .map( (response: Response) => response.json() );
+  }
+
+  deleteOneNews(oneNews: any) {
+    return this.http.delete(`http://localhost:3000/news/${oneNews.id}`)
+      .map( (response: Response) => response.json() );
+  }
+
   assignNewsToService() {
+    this.news = [];
     const ourNewsObservable = Observable.create((observer) =>  {
       this.getNews()
         .subscribe((news: OneNews[]) => {

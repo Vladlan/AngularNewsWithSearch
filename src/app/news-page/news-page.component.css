@@ -1,3 +1,9 @@
 .newsSearch {
   margin: 5px 0 5px 0;
 }
+
+.divider {
+  display: flex;
+  height: 50px;
+  width: 100%;
+}

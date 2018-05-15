@@ -25,7 +25,8 @@ export class HomePageComponent {
   }
 
   loadNewsInNewsService() {
-    this.newsService.assignNewsToService().subscribe((data) => {
+    this.newsService.assignNewsToService()
+      .subscribe((data) => {
         console.log('data: ', data);
       },
       (err) => {

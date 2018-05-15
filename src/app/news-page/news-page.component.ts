@@ -9,7 +9,7 @@ export interface OneNews {
   };
   content: string;
   id: number;
-  dateOfCreation: number,
+  dateOfCreation: number;
   contentImgs?: { source: string, description: string }[];
 }
 
